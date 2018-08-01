@@ -1,0 +1,9 @@
+<form method="post" action="{{ action }}">
+    <label class="control-label">Nome</label>
+    <div class="form-group">
+        <input class="form-control" type="text" placeholder="Nome" name="name" value="{{ category.name }}" autofocus required>
+    </div>
+    <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-{{ submitIcon }}"></span>
+    </button>
+</form>

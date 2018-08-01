@@ -1,0 +1,38 @@
+<?php
+declare(strict_types=1);
+namespace CROFin\View;
+
+use Psr\Http\Message\ResponseInterface;
+use Zend\Diactoros\Response;
+
+class ViewRenderer implements ViewRendererInterface
+{
+    /**
+     * @var \Twig_Environment
+     */
+    private $twigEnvironment;
+
+    /**
+     * ViewRenderer constructor.
+     */
+    public function __construct(\Twig_Environment $twigEnvironment)
+    {
+        $this->twigEnvironment = $twigEnvironment;
+    }
+
+    /**
+     * @param string $template
+     * @param array $context
+     * @return ResponseInterface
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function render(string $template, array $context = []): ResponseInterface
+    {
+        $result = $this->twigEnvironment->render($template, $context);
+        $response = new Response();
+        $response->getBody()->write($result);
+        return $response;
+    }
+}
