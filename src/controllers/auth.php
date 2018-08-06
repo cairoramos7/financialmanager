@@ -22,4 +22,10 @@ $app
 
         return $app->route('categoryCosts.list');
 
-    }, 'auth.login');
+    }, 'auth.login')
+
+    ->get('/logout', function() use($app) {
+        $app->service('auth')->logout();
+
+        return $app->route('auth.show');
+    }, 'auth.logout');

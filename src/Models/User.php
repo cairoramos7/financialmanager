@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use \Jasny\Auth\User as JasnyUser;
 
-class User extends Model implements JasnyUser
+class User extends Model implements JasnyUser, UserInterface
 {
     /* Mass Assignment */
     protected $fillable = [
@@ -49,7 +49,7 @@ class User extends Model implements JasnyUser
     /**
      * Event called on login.
      *
-     * @return boolean  false cancels the login
+     * @return void false cancels the login
      */
     public function onLogin()
     {
@@ -64,5 +64,29 @@ class User extends Model implements JasnyUser
     public function onLogout()
     {
         // TODO: Implement onLogout() method.
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullName(): string
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword(): string
+    {
+        return $this->password;
     }
 }

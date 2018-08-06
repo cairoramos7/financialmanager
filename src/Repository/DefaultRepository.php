@@ -39,7 +39,17 @@ class DefaultRepository implements RepositoryInterface
      */
     public function find(int $id, bool $failIfNotExists = true)
     {
-        $failIfNotExists ? $this->model->findOrFail($id) : $this->model->find($id);
+        return $failIfNotExists ? $this->model->findOrFail($id) : $this->model->find($id);
+    }
+
+    /**
+     * @param string $field
+     * @param $value
+     * @return array
+     */
+    public function findByField(string $field, $value)
+    {
+        return $this->model->where($field, '=', $value)->get();
     }
 
     /**
@@ -75,15 +85,5 @@ class DefaultRepository implements RepositoryInterface
         $model = $this->model->find($id);
         $model->delete();
         return $model;
-    }
-
-    /**
-     * @param string $field
-     * @param $value
-     * @return array
-     */
-    public function findByField(string $field, $value)
-    {
-        return $this->model->where($field, '=', $value)->get();
     }
 }

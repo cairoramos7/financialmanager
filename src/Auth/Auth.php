@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace CROFin\Auth;
 
+use CROFin\Models\UserInterface;
+
 class Auth implements AuthInterface
 {
     /**
@@ -36,15 +38,24 @@ class Auth implements AuthInterface
      */
     public function check(): bool
     {
-        file_put_contents('session.txt', json_encode($_SESSION));
-        return $this->jasnyAuth->user() !== null;
+        return $this->user() !== null;
     }
 
     /**
      *
      */
     public function logout(): void
-    {}
+    {
+        $this->jasnyAuth->logout();
+    }
+
+    /**
+     * @return UserInterface|null
+     */
+    public function user(): ?UserInterface
+    {
+        return $this->jasnyAuth->user();
+    }
 
     /**
      * @param string $password

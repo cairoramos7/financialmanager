@@ -1,1 +1,0 @@
-{"id":1,"first_name":"Valentina","last_name":"das Neves","email":"admin@user.com","password":"$2y$10$R5FWBY64KWaUpUwZmzdOMuYXTRZeyuEh5t3PXJ0P\/6XAFl4TgU7WC","created_at":"-0001-11-30 00:00:00","updated_at":"-0001-11-30 00:00:00"}
