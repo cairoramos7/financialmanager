@@ -27,13 +27,13 @@ interface RepositoryInterface
      * @param array $data
      * @return mixed
      */
-    public function update(int $id, array $data);
+    public function update($id, array $data);
 
     /**
      * @param int $id
      * @return mixed
      */
-    public function delete(int $id);
+    public function delete($id);
 
     /**
      * @param string $field
@@ -41,4 +41,10 @@ interface RepositoryInterface
      * @return array
      */
     public function findByField(string $field, $value);
+
+    /**
+     * @param array $search
+     * @return mixed
+     */
+    public function findOneBy(array $search);
 }
