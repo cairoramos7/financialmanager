@@ -1,0 +1,17 @@
+<form method="post" action="{{ action }}">
+    <label class="control-label">Data de Lançamento</label>
+    <div class="form-group">
+        <input class="form-control" type="text" placeholder="DD/MM/YYYY" name="date_launch"  value="{{ bill.date_launch | date('d/m/Y') }}" autofocus required>
+    </div>
+    <label class="control-label">Nome</label>
+    <div class="form-group">
+        <input class="form-control" type="text" placeholder="Nome" name="name" value="{{ bill.name }}" autofocus required>
+    </div>
+    <label class="control-label">Value</label>
+    <div class="form-group">
+        <input class="form-control" type="text" placeholder="0.000,00" name="value" value="{{ bill.value | number_format(2, ',', '.') }}" autofocus required>
+    </div>
+    <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-{{ submitIcon }}"></span>
+    </button>
+</form>

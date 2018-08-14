@@ -2,6 +2,7 @@
 declare(strict_types=1);
 namespace CROFin\Plugins;
 
+use CROFin\Models\BillReceive;
 use CROFin\Models\CategoryCost;
 use CROFin\Models\User;
 use CROFin\Repository\RepositoryFactory;
@@ -22,6 +23,10 @@ class DbPlugin implements PluginInterface
 
         $container->addLazy('categoryCost.repository', function(ContainerInterface $container) {
             return $container->get('repository.factory')->factory(CategoryCost::class);
+        });
+
+        $container->addLazy('billReceive.repository', function(ContainerInterface $container) {
+            return $container->get('repository.factory')->factory(BillReceive::class);
         });
 
         $container->addLazy('user.repository', function(ContainerInterface $container) {
