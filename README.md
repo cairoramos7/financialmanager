@@ -1,6 +1,6 @@
 # Gerenciador de finanças pessoais com PHP OO (financial-manager)
 
-Gerenciador de finanças pessoais com PHP 7.1 orientado a objetos.
+Gerenciador de finanças pessoais com PHP orientado a objetos.
 
 # Features!
 
@@ -13,3 +13,13 @@ Gerenciador de finanças pessoais com PHP 7.1 orientado a objetos.
   - Composer
   - PHP CodeSniffer
   - Bootstrap
+  
+  ### Pré-requisitos
+  
+  Para que o projeto possa funcionar no seu ambiente, você precisa ter os seguintes softwares instalados na sua máquina:
+  
+  ```
+  PHP >= 7.1.3
+  Composer
+  MySql
+  ```
