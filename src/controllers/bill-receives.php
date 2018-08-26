@@ -5,10 +5,6 @@ use Psr\Http\Message\ServerRequestInterface;
 $repository = $app->service('billReceive.repository');
 
 $app
-    ->get('/', function() use($app) {
-        return $app->route('billReceives.list');
-    })
-
     ->get('/bill-receives', function() use($app, $repository) {
         $view = $app->service('view.renderer');
 

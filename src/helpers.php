@@ -1,5 +1,6 @@
 <?php
 
+
 function dateParse($date) {
     // DD/MM/YYYY -> YYYY-MM-DD
     $dateArray = explode('/', $date);
