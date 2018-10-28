@@ -31,11 +31,11 @@ class BillPaysSeeder extends AbstractSeed
         $billPays = $this->table('bill_pays');
         $data = [];
 
-        foreach(range(1,  20) as $item) {
+        foreach(range(1,  100) as $item) {
             $userId = rand(1, 4);
 
             $data[] = [
-                'date_launch' => $faker->date(),
+                'date_launch' => $faker->dateTimeBetween('-2 month')->format('Y-m-d'),
                 'name' => $faker->word,
                 'user_id' => $userId,
                 'category_cost_id' => $faker->categoryId($userId),

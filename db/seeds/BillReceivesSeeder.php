@@ -33,9 +33,9 @@ class BillReceivesSeeder extends AbstractSeed
         $billReceives = $this->table('bill_receives');
         $data = [];
 
-        foreach(range(1,  20) as $item) {
+        foreach(range(1,  100) as $item) {
             $data[] = [
-                'date_launch' => $faker->date(),
+                'date_launch' => $faker->dateTimeBetween('-2 month')->format('Y-m-d'),
                 'name' => $faker->billReceivesName(),
                 'user_id' => rand(1, 4),
                 'value' => $faker->randomFloat(2, 10, 1000),
