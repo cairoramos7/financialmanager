@@ -1,6 +1,6 @@
-# Gerenciador de finanças pessoais com PHP OO (financial-manager)
+# Personal Finance Manager (financial-manager)
 
-Gerenciador de finanças pessoais com PHP orientado a objetos.
+Personal finance manager with PHP object oriented.
 
 # Features!
 
@@ -14,9 +14,9 @@ Gerenciador de finanças pessoais com PHP orientado a objetos.
   - PHP CodeSniffer
   - Bootstrap
   
-  ### Pré-requisitos
+  ### Prerequisites
   
-  Para que o projeto possa funcionar no seu ambiente, você precisa ter os seguintes softwares instalados na sua máquina:
+  In order for the project to work in your environment, you must have the following software installed on your machine:
   
   ```
   PHP >= 7.1.3
