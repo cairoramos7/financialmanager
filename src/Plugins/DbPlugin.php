@@ -6,6 +6,7 @@ use CROFin\Models\BillPay;
 use CROFin\Models\BillReceive;
 use CROFin\Models\CategoryCost;
 use CROFin\Models\User;
+use CROFin\Repository\CategoryCostRepository;
 use CROFin\Repository\RepositoryFactory;
 use CROFin\Repository\StatementRepository;
 use CROFin\ServiceContainerInterface;
@@ -23,8 +24,8 @@ class DbPlugin implements PluginInterface
 
         $container->add('repository.factory', new RepositoryFactory());
 
-        $container->addLazy('categoryCost.repository', function(ContainerInterface $container) {
-            return $container->get('repository.factory')->factory(CategoryCost::class);
+        $container->addLazy('categoryCost.repository', function() {
+            return new CategoryCostRepository();
         });
 
         $container->addLazy('billReceive.repository', function(ContainerInterface $container) {
