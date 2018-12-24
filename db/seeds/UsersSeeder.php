@@ -22,12 +22,14 @@ class UsersSeeder extends AbstractSeed
         $faker = \Faker\Factory::create('pt_BR');
 
         $users = $this->table('users');
+        /*
         $users->insert([
             'first_name' => $faker->firstName,
             'last_name' => $faker->lastName,
             'email' => 'admin@user.com',
             'password' => $auth->hashPassword('123456')
         ])->save();
+        */
 
         $data = [];
 
