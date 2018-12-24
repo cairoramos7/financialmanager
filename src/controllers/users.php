@@ -10,7 +10,6 @@ $app
             return $app->route('users.list');
         }
     )
-
     ->get(
         '/users', function () use ($app, $repository) {
             $view = $app->service('view.renderer');
@@ -24,7 +23,6 @@ $app
             );
         }, 'users.list'
     )
-
     ->get(
         '/users/new', function () use ($app, $repository) {
             $view = $app->service('view.renderer');
@@ -32,16 +30,16 @@ $app
             return $view->render('users/create.html.twig');
         }, 'users.new'
     )
-
     ->post(
         '/users/store', function (ServerRequestInterface $request) use ($app, $repository) {
             $data = $request->getParsedBody();
+            $auth = $app->service('auth');
+            $data['password'] = $auth->hashPassword($data['password']);
             $repository->create($data);
 
             return $app->route('users.list');
         }, 'users.store'
     )
-
     ->get(
         '/users/{id}/edit', function (ServerRequestInterface $request) use ($app, $repository) {
             $view = $app->service('view.renderer');
@@ -54,17 +52,19 @@ $app
             );
         }, 'users.edit'
     )
-
     ->post(
         '/users/{id}/update', function (ServerRequestInterface $request) use ($app, $repository) {
             $id = $request->getAttribute('id');
             $data = $request->getParsedBody();
+
+            if (isset($data['password'])) {
+                unset($data['password']);
+            }
             $repository->update($id, $data);
 
             return $app->route('users.list');
         }, 'users.update'
     )
-
     ->get(
         '/users/{id}/show', function (ServerRequestInterface $request) use ($app, $repository) {
             $view = $app->service('view.renderer');
@@ -77,7 +77,6 @@ $app
             );
         }, 'users.show'
     )
-
     ->get(
         '/users/{id}/delete', function (ServerRequestInterface $request) use ($app, $repository) {
             $id = $request->getAttribute('id');
