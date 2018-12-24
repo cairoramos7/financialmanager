@@ -15,9 +15,9 @@ class CategoryCostRepository extends DefaultRepository implements CategoryCostRe
     }
 
     /**
-     * @param string $dateStart
-     * @param string $dateEnd
-     * @param int $userId
+     * @param  string $dateStart
+     * @param  string $dateEnd
+     * @param  int    $userId
      * @return array
      */
     public function sumByPeriod(string $dateStart, string $dateEnd, int $userId): array
@@ -27,10 +27,12 @@ class CategoryCostRepository extends DefaultRepository implements CategoryCostRe
             ->leftJoin('bill_pays', 'bill_pays.category_cost_id', '=', 'category_costs.id')
             ->where('category_costs.user_id', $userId)
             ->whereNotNull('bill_pays.category_cost_id')
-            ->whereBetween('date_launch', [
+            ->whereBetween(
+                'date_launch', [
                 $dateStart,
                 $dateEnd
-            ])
+                ]
+            )
             ->groupBy('value')
             ->groupBy('category_costs.name')
             ->get();

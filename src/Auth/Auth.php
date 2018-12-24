@@ -14,6 +14,7 @@ class Auth implements AuthInterface
 
     /**
      * Auth constructor.
+     *
      * @param JasnyAuth $jasnyAuth
      */
     public function __construct(JasnyAuth $jasnyAuth)
@@ -23,7 +24,7 @@ class Auth implements AuthInterface
     }
 
     /**
-     * @param array $credentials
+     * @param  array $credentials
      * @return bool
      */
     public function login(array $credentials): bool
@@ -58,7 +59,7 @@ class Auth implements AuthInterface
     }
 
     /**
-     * @param string $password
+     * @param  string $password
      * @return string
      */
     public function hashPassword(string $password): string
@@ -66,7 +67,8 @@ class Auth implements AuthInterface
         return $this->jasnyAuth->hashPassword($password);
     }
 
-    protected function sessionStart() {
+    protected function sessionStart()
+    {
         if(session_status() == PHP_SESSION_NONE) {
             session_start();
         }

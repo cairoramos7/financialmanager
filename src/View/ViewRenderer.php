@@ -21,8 +21,8 @@ class ViewRenderer implements ViewRendererInterface
     }
 
     /**
-     * @param string $template
-     * @param array $context
+     * @param  string $template
+     * @param  array  $context
      * @return ResponseInterface
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime

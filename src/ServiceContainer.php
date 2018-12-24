@@ -6,6 +6,7 @@ use Xtreamwayz\Pimple\Container;
 
 /**
  * Class ServiceContainer
+ *
  * @package CROFin
  */
 class ServiceContainer implements ServiceContainerInterface
@@ -25,7 +26,7 @@ class ServiceContainer implements ServiceContainerInterface
     }
 
     /**
-     * @param string $name
+     * @param string  $name
      * @param $service
      */
     public function add(string $name, $service)
@@ -34,7 +35,7 @@ class ServiceContainer implements ServiceContainerInterface
     }
 
     /**
-     * @param string $name
+     * @param string   $name
      * @param callable $callable
      */
     public function addLazy(string $name, callable $callable)
@@ -43,7 +44,7 @@ class ServiceContainer implements ServiceContainerInterface
     }
 
     /**
-     * @param string $name
+     * @param  string $name
      * @return mixed
      */
     public function get(string $name)
@@ -52,7 +53,7 @@ class ServiceContainer implements ServiceContainerInterface
     }
 
     /**
-     * @param string $name
+     * @param  string $name
      * @return bool
      */
     public function has(string $name)

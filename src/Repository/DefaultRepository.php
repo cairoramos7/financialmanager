@@ -16,6 +16,7 @@ class DefaultRepository implements RepositoryInterface
 
     /**
      * DefaultRepository constructor.
+     *
      * @param string $modelClass
      */
     public function __construct(string $modelClass)
@@ -33,8 +34,8 @@ class DefaultRepository implements RepositoryInterface
     }
 
     /**
-     * @param int $id
-     * @param bool $failIfNotExists
+     * @param  int  $id
+     * @param  bool $failIfNotExists
      * @return mixed
      */
     public function find(int $id, bool $failIfNotExists = true)
@@ -43,8 +44,8 @@ class DefaultRepository implements RepositoryInterface
     }
 
     /**
-     * @param string $field
-     * @param $value
+     * @param  string $field
+     * @param  $value
      * @return array
      */
     public function findByField(string $field, $value)
@@ -53,7 +54,7 @@ class DefaultRepository implements RepositoryInterface
     }
 
     /**
-     * @param array $data
+     * @param  array $data
      * @return mixed
      */
     public function create(array $data)
@@ -64,8 +65,8 @@ class DefaultRepository implements RepositoryInterface
     }
 
     /**
-     * @param int $id
-     * @param array $data
+     * @param  int   $id
+     * @param  array $data
      * @return mixed
      */
     public function update($id, array $data)
@@ -78,7 +79,7 @@ class DefaultRepository implements RepositoryInterface
     }
 
     /**
-     * @param int $id
+     * @param  int $id
      * @return mixed
      */
     public function delete($id)
@@ -88,12 +89,13 @@ class DefaultRepository implements RepositoryInterface
         return $model;
     }
 
-    protected function findInternal($id) {
+    protected function findInternal($id)
+    {
         return is_array($id) ? $this->findOneBy($id) : $this->findOrFail($id);
     }
 
     /**
-     * @param array $search
+     * @param  array $search
      * @return mixed
      */
     public function findOneBy(array $search)
